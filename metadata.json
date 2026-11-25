@@ -1,0 +1,6 @@
+{
+  "name": "Staazy — Two-Sided PG Ecosystem & PG OS",
+  "description": "India's two-sided PG discovery, Vibe-matched roommate platform, PG OS owner SaaS dashboard, and Super Admin portal built on Supabase PostgreSQL.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
