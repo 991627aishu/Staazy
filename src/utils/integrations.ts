@@ -88,11 +88,17 @@ export interface IntegrationStatusSummary {
 }
 
 export function getIntegrationStatus(): IntegrationStatusSummary {
+  const supabaseKey =
+    (import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY as string | undefined)?.trim() ||
+    (import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined)?.trim() ||
+    '';
+
   const hasSupabase =
     Boolean(import.meta.env.VITE_SUPABASE_URL) &&
     !String(import.meta.env.VITE_SUPABASE_URL).includes('YOUR_PROJECT_REF') &&
-    Boolean(import.meta.env.VITE_SUPABASE_ANON_KEY) &&
-    !String(import.meta.env.VITE_SUPABASE_ANON_KEY).includes('YOUR_SUPABASE');
+    Boolean(supabaseKey) &&
+    !String(supabaseKey).includes('YOUR_SUPABASE') &&
+    !String(supabaseKey).includes('YOUR_KEY');
 
   const hasWhatsAppId = Boolean((import.meta.env.VITE_WHATSAPP_BUSINESS_PHONE_NUMBER_ID as string | undefined)?.trim());
   const hasMapsKey = Boolean((import.meta.env.VITE_GOOGLE_MAPS_API_KEY as string | undefined)?.trim());

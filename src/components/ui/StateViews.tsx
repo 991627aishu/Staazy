@@ -89,10 +89,10 @@ export function ErrorState({
                 Connect your Supabase PostgreSQL project to activate live data
               </h3>
               <p className="mt-1 text-sm text-slate-600">
-                All 10 SQL migrations, RLS policies, and typed services are ready in{' '}
-                <code className="font-mono text-xs text-[#2E1065]">supabase/migrations/</code>. Add{' '}
+                All SQL migrations, RLS policies, and typed services are ready in{' '}
+                <code className="font-mono text-xs text-[#2E1065]">supabase/</code>. Set{' '}
                 <code className="font-mono text-xs text-[#2E1065]">VITE_SUPABASE_URL</code> and{' '}
-                <code className="font-mono text-xs text-[#2E1065]">VITE_SUPABASE_ANON_KEY</code> to{' '}
+                <code className="font-mono text-xs text-[#2E1065]">VITE_SUPABASE_PUBLISHABLE_KEY</code> in{' '}
                 <code className="font-mono text-xs text-[#2E1065]">.env</code> to start persisting real records.
               </p>
             </div>

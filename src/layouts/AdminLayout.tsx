@@ -15,6 +15,7 @@ import {
   X,
 } from 'lucide-react';
 import { StaazyLogo } from '../components/StaazyLogo';
+import { ConnectionBanner } from '../components/ConnectionBanner';
 import { useAuth } from '../context/AuthContext';
 
 const ADMIN_NAV = [
@@ -155,16 +156,8 @@ export function AdminLayout() {
           </Link>
         </header>
 
-        {previewMode && (
-          <div className="border-b border-amber-200 bg-amber-50 px-4 py-2 text-xs text-amber-900 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between gap-2">
-            <span>
-              <strong>Supabase not connected:</strong> Viewing Super Admin portal layout. In production, access is strictly enforced by PostgreSQL <code className="font-mono">user_roles</code> RLS.
-            </span>
-            <Link to="/setup-guide" className="font-semibold text-[#6D28D9] underline underline-offset-2 whitespace-nowrap">
-              Connect Supabase
-            </Link>
-          </div>
-        )}
+        {/* Live Supabase Connection Banner */}
+        <ConnectionBanner />
 
         <main className="flex-1 p-4 sm:p-6 lg:p-8 max-w-[1440px] w-full mx-auto">
           <Outlet />

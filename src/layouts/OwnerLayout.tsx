@@ -20,6 +20,7 @@ import {
   X,
 } from 'lucide-react';
 import { StaazyLogo } from '../components/StaazyLogo';
+import { ConnectionBanner } from '../components/ConnectionBanner';
 import { useAuth } from '../context/AuthContext';
 
 const OWNER_NAV = [
@@ -166,16 +167,8 @@ export function OwnerLayout() {
           </div>
         </header>
 
-        {previewMode && (
-          <div className="border-b border-[#E9E2FF] bg-[#F7F5FF] px-4 py-2 text-xs text-[#2E1065] sm:px-6 lg:px-8 flex flex-wrap items-center justify-between gap-2">
-            <span>
-              <strong>Supabase not connected:</strong> Viewing PG OS SaaS interface. Connect Supabase credentials in <code className="font-mono">.env</code> to manage real properties, beds, and rent ledgers.
-            </span>
-            <Link to="/setup-guide" className="font-semibold text-[#6D28D9] underline underline-offset-2 whitespace-nowrap">
-              Open Setup Guide
-            </Link>
-          </div>
-        )}
+        {/* Live Supabase Connection Banner */}
+        <ConnectionBanner />
 
         <main className="flex-1 p-4 sm:p-6 lg:p-8 max-w-[1440px] w-full mx-auto">
           <Outlet />

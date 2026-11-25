@@ -17,6 +17,7 @@ import {
   X,
 } from 'lucide-react';
 import { StaazyLogo } from '../components/StaazyLogo';
+import { ConnectionBanner } from '../components/ConnectionBanner';
 import { useAuth } from '../context/AuthContext';
 
 const PRIMARY_NAV = [
@@ -88,24 +89,8 @@ export function TenantLayout() {
         </div>
       </header>
 
-      {/* Unconnected UI Inspection Banner */}
-      {previewMode && (
-        <div className="border-b border-[#E9E2FF] bg-[#2E1065] text-white">
-          <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-2 text-xs sm:px-6 lg:px-8">
-            <p className="text-purple-100">
-              <strong className="font-semibold text-[#FACC15]">Supabase not connected:</strong> Viewing Staazy Tenant UI layout. Connect <code className="font-mono">.env</code> for live database persistence.
-            </p>
-            <div className="flex items-center gap-4">
-              <Link to="/setup-guide" className="font-semibold text-[#FACC15] underline underline-offset-2 whitespace-nowrap">
-                Setup Guide
-              </Link>
-              <Link to="/role-selection" className="font-medium text-white/90 hover:text-white whitespace-nowrap">
-                Switch Portal
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
+      {/* Live Supabase Connection Banner */}
+      <ConnectionBanner />
 
       {/* Secondary Utility Bar on Desktop */}
       <div className="hidden md:block border-b border-slate-200/80 bg-white">

@@ -23,14 +23,14 @@ const SETUP_STEPS = [
   { num: 'Step 1', title: 'Create a Supabase Account', detail: 'Sign in at supabase.com using GitHub or email and select your organization.' },
   { num: 'Step 2', title: 'Create a Project Named Staazy', detail: 'Click New Project, name it "Staazy", and save your PostgreSQL database password securely.' },
   { num: 'Step 3', title: 'Choose Database Region', detail: 'Select South Asia (Mumbai — ap-south-1) for lowest latency across Bengaluru and India.' },
-  { num: 'Step 4', title: 'Copy Project URL & Publishable Key', detail: 'Open Project Settings → API and copy Project URL and anon/publishable key. Never put service_role in frontend code.' },
-  { num: 'Step 5', title: 'Configure .env Variables', detail: 'Copy .env.example to .env and set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY, then restart npm run dev.' },
+  { num: 'Step 4', title: 'Copy Project URL & Publishable Key', detail: 'Open Project Settings → API and copy Project URL and Publishable / Anon key. Never expose service_role in frontend code.' },
+  { num: 'Step 5', title: 'Configure .env Variables', detail: 'Set VITE_SUPABASE_URL and VITE_SUPABASE_PUBLISHABLE_KEY in .env, then restart npm run dev.' },
   { num: 'Step 6', title: 'Open Supabase SQL Editor', detail: 'Open SQL Editor from the left sidebar of your Supabase Dashboard and create a new query.' },
-  { num: 'Step 7', title: 'Execute Migrations 001–011 + seed.sql', detail: 'Run every SQL file in supabase/migrations/ in exact numerical order, followed by supabase/seed.sql.' },
+  { num: 'Step 7', title: 'Execute Migrations (Single Step)', detail: 'Copy and execute supabase/FULL_DATABASE_SETUP.sql (or migrations 001–011 + seed.sql) in SQL Editor.' },
   { num: 'Step 8', title: 'Verify Tables, Constraints & RLS', detail: 'Run the verification SQL query below to confirm all 50 tables exist with rowsecurity = true.' },
   { num: 'Step 9', title: 'Enable Phone OTP Auth', detail: 'Go to Authentication → Providers → Phone, connect your SMS provider or configure Test Phone Numbers for development.' },
   { num: 'Step 10', title: 'Verify Storage Buckets', detail: 'Confirm property-media & avatars (Public) and kyc-documents, payment-proofs, complaint-attachments (Private).' },
-  { num: 'Step 11', title: 'Deploy to Vercel', detail: 'Import repo into Vercel (Vite preset), configure VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in Project Settings, and deploy.' },
+  { num: 'Step 11', title: 'Deploy to Vercel', detail: 'Import repo into Vercel (Vite preset), configure VITE_SUPABASE_URL and VITE_SUPABASE_PUBLISHABLE_KEY in Project Settings, and deploy.' },
 ];
 
 const VERIFY_SQL = `SELECT tablename, rowsecurity
