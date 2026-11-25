@@ -95,8 +95,6 @@ export async function fetchHydratedUser(userId: string): Promise<HydratedUserSes
     client.from('vibe_profiles').select('*').eq('user_id', userId).maybeSingle(),
   ]);
 
-  if (profileRes.error) throw new Error(profileRes.error.message);
-
   const roles: AppRole[] = (rolesRes.data ?? []).map((r: { role: AppRole }) => r.role);
 
   return {

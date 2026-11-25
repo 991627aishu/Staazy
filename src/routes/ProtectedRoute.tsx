@@ -49,6 +49,14 @@ export function ProtectedRoute({ allowedRoles, children }: ProtectedRouteProps) 
       !assignError
     ) {
       setAutoAssigning(true);
+      
+      const timeoutId = setTimeout(() => {
+        if (isMounted) {
+          setAutoAssigning(false);
+          setAssignError('Role assignment is taking longer than expected. Click below to continue.');
+        }
+      }, 5000);
+
       assignSelfRole(selfAssignableRole)
         .catch((err) => {
           if (isMounted) {
@@ -56,6 +64,7 @@ export function ProtectedRoute({ allowedRoles, children }: ProtectedRouteProps) 
           }
         })
         .finally(() => {
+          clearTimeout(timeoutId);
           if (isMounted) {
             setAutoAssigning(false);
           }
